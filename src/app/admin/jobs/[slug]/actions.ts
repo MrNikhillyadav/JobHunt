@@ -15,10 +15,12 @@ export async function approveSubmission(
 ): Promise<FormState> {
   try {
     const jobId = parseInt(formData.get("jobId") as string);
+    console.log('jobId: ', jobId);
 
     const user = await currentUser();
+    console.log('user: ', user);
 
-    if (!user || !isAdmin(user)) {
+    if (!user || isAdmin(user)) {
       throw new Error("Not authorized");
     }
 

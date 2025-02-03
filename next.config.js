@@ -2,8 +2,10 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      {
-        hostname: "rqcoa3ubmzn9qpsj.public.blob.vercel-storage.com",
+      {  protocol:"https",
+        hostname: "iy050ak8qgbpsthz.public.blob.vercel-storage.com",
+        port: '',
+        pathname: '/company_logos/**',
       },
     ],
   },
