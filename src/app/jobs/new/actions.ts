@@ -10,7 +10,7 @@ import path from "path";
 
 export async function createJobPosting(formData: FormData) {
   const values = Object.fromEntries(formData.entries());
-
+  console.log(values)
   const {
     title,
     type,
@@ -35,6 +35,7 @@ export async function createJobPosting(formData: FormData) {
       {
         access: "public",
         addRandomSuffix: false,
+        token: process.env.BLOB_READ_WRITE_TOKEN,
       },
     );
 

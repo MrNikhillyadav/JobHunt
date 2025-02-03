@@ -40,19 +40,29 @@ export default function NewJobForm() {
 
   async function onSubmit(values: CreateJobValues) {
     const formData = new FormData();
-
+  
     Object.entries(values).forEach(([key, value]) => {
-      if (value) {
+      if (value instanceof File) {
         formData.append(key, value);
+      } else if (typeof value === "object" && value !== null) {
+        formData.append(key, JSON.stringify(value));
+      } else if (value) {
+        formData.append(key, value.toString());
       }
     });
-
+  
+    console.log("FormData entries:");
+    for (let pair of formData.entries()) {
+      console.log(pair[0], pair[1]);
+    }
+  
     try {
       await createJobPosting(formData);
     } catch (error) {
       alert("Something went wrong, please try again.");
     }
   }
+  
 
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
