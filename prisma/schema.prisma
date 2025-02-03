@@ -25,7 +25,7 @@ model Job {
   applicationEmail String?
   applicationUrl   String?
   companyLogoUrl   String?
-  approved         Boolean  @default(false)
+  approved         Boolean  @default(true)
   createdAt        DateTime @default(now())
   updatedAt        DateTime @updatedAt
 
