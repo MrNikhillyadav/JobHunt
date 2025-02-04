@@ -14,9 +14,14 @@ export default function Navbar() {
           <Image src={logo} width={40} height={40} alt="Flow Jobs logo" />
           <span className="text-xl font-bold tracking-tight">JobHunt.com</span>
         </Link>
-        <Button onClick={() => router.push('/jobs/new')} asChild>
-          <span className='cursor-pointer' >Post a new job</span>
-        </Button>
+        <div className="flex justify-center items-center gap-4"> 
+              <Button onClick={() => router.push('/jobs/new')} asChild>
+                <span className='cursor-pointer' >Post a new job</span>
+              </Button>
+              <Button variant='outline' onClick={() => router.push('/admin')} asChild>
+                <span className='cursor-pointer' >Admin Dashboard</span>
+              </Button>
+        </div>
       </nav>
     </header>
   );
